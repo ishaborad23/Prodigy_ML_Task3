@@ -1,27 +1,25 @@
-Hand Gesture Recognition Model:
+Cat vs. Dog Image Classification:
 
-This repository contains a deep learning model for recognizing hand gestures. The model is trained on a custom dataset of images with various hand gestures and is designed to classify images into one of ten gesture classes.
+This project classifies images of cats and dogs using Principal Component Analysis (PCA) and Support Vector Machines (SVM). The dataset is split into training and test sets, and the model is tuned using grid search with cross-validation to find the best hyperparameters.
 
 Project Overview:
 
-The goal of this project is to create a deep learning model that can accurately identify and classify different hand gestures from image data. This can be used in various applications such as human-computer interaction, gesture-based control systems, and more.
+The goal of this project is to classify images of cats and dogs. We use PCA for dimensionality reduction and SVM for classification. The pipeline is optimized using GridSearchCV to identify the best combination of PCA components and SVM kernels.
 
-Dataset: https://www.kaggle.com/datasets/roobansappani/hand-gesture-recognition/data
-The dataset consists of images of hands showing various gestures.
+Dataset
+The dataset consists of images of cats and dogs organized into training and test folders. Each image is resized to 50x50 pixels, normalized, and flattened before being fed into the model.
 
-Model Architecture
-The model is a Convolutional Neural Network (CNN) built using TensorFlow and Keras. The architecture consists of:
-
-Input Layer: 128x128 RGB images
-Convolutional Layers: Several Conv2D layers with ReLU activation and MaxPooling
-Dropout Layers: For regularization to prevent overfitting
-Flatten Layer: Converts the 2D matrix data to a vector
-Dense Layers: Fully connected layers with ReLU activation
-Output Layer: A softmax layer with 10 units, one for each class
-Training
-The model was trained using the following configuration:
-
-Optimizer: Adam
-Loss Function: Categorical Crossentropy
-Metrics: Accuracy
-Data Augmentation: Applied using ImageDataGenerator to increase the dataset's variability and improve generalization
+Modeling Process
+Image Preprocessing:
+Images are resized to 50x50 pixels.
+Pixels are normalized by dividing by 255.0.
+Images are flattened into 1D arrays.
+Feature Extraction:
+PCA is applied to reduce dimensionality.
+Modeling:
+SVM is used for classification.
+A pipeline combining PCA and SVM is created.
+Hyperparameter Tuning:
+GridSearchCV is used to find the best number of PCA components and the best SVM kernel.
+Evaluation:
+The model is evaluated on the test set, and performance metrics are generated.
